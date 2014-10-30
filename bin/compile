@@ -27,6 +27,10 @@ statusn "Installing JDK..."
 install_java $CACHE_DIR $BUILD_DIR
 echo " version $(java_version) installed"
 
+statusn "Installing Maven..."
+install_maven $CACHE_DIR
+echo " version $(maven_version) installed"
+
 cd $BUILD_DIR
 
 BUILDCMD="mvn -B -Duser.home=$BUILD_DIR -Dmaven.repo.local=$CACHE_DIR/.m2/repository -DskipTests=true -U clean install"
